@@ -1,9 +1,12 @@
 {
-  "name": "adultapi",
-  "version": "1.0.0",
+  "name": "porn-x",
+  "version": "1.0.2",
   "description": "Get information about a pornstar, get pictures, videos and many more!",
   "main": "./src/index.js",
   "type": "module",
+  "repository": {
+    "url": "https://github.com/Basementfoxx/Porn-X"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

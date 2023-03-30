@@ -6,10 +6,10 @@ Porn X
   <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1090998411098079352/SPOILER_1680184639539.png" alt="PornX" width="70%"/>
     <p align="center">
   <a href="http://forthebadge.com/" target="_blank">
-    <img src="https://img.shields.io/npm/dt/@myno_21/time.svg"/>
+    <img src="https://img.shields.io/npm/dt/porn-x.svg"/>
   </a>
     <a href="http://forthebadge.com/" target="_blank">
-    <img src="https://img.shields.io/npm/v/@myno_21/time.svg"/>
+    <img src="https://img.shields.io/npm/v/porn-x.svg"/>
   </a>
 </p>
 </p>
@@ -35,7 +35,7 @@ $ npm install porn-x
 # 🪗 Usage/Examples
 
 ```ts
-import { Client } from "./src/index.js";
+import { Client } from "porn-x";
 const client = new Client(); // Creating a new instance.
 
 (async () => {
