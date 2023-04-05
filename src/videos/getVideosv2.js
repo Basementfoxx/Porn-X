@@ -54,6 +54,7 @@ export default async function getFapXl(query, options) {
     spinner.text = `Fetched ${videos.length} videos`;
 
     const data = await getFapXLVideo(response.url);
+
     videos.push({
       title: response.title,
       time: response.duration,

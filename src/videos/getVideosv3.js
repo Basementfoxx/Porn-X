@@ -51,18 +51,22 @@ function convert(minutes) {
 }
 
 async function fetchActualURL(_url) {
-  const request = await got(_url);
-  const body = await request.body;
-  const $ = cheerio.load(body);
+  try {
+    const request = await got(_url);
+    const body = await request.body;
+    const $ = cheerio.load(body);
 
-  const url = $("#video_container").find("video").find("source").attr("src");
-  const time = $("span[class='i-length']").first().text();
-  const title = $("div.left").find("h1").first().text();
-  return {
-    url,
-    time,
-    title,
-  };
+    const url = $("#video_container").find("video").find("source").attr("src");
+    const time = $("span[class='i-length']").first().text();
+    const title = $("div.left").find("h1").first().text();
+    return {
+      url,
+      time,
+      title,
+    };
+  } catch (e) {
+    return;
+  }
 }
 
 export default getSpank;

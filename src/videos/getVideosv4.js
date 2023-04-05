@@ -44,14 +44,18 @@ export default async function retrieveData(query, options = {}) {
   for (const response of array) {
     spinner.color = "yellow";
     spinner.text = `Fetched ${videos.length} videos`;
-
-    const _result_ = await getMilf300(response.href);
-    videos.push({
-      time: response.time,
-      title: response.title,
-      url: _result_.videoURL,
-      poster: _result_.poster,
-    });
+    try {
+      const _result_ = await getMilf300(response.href);
+      if (_result_?.videoURL) return;
+      videos.push({
+        time: response?.time,
+        title: response?.title,
+        url: _result_?.videoURL,
+        poster: _result_?.poster,
+      });
+    } catch (e) {
+      return;
+    }
   }
   spinner.stopAndPersist({
     symbol: "✅",
