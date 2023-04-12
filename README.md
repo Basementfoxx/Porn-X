@@ -23,7 +23,7 @@
 </p>
 <h3>
 
-# ⏲️ Version 1.0.19
+# ⏲️ Version 1.0.20
 
 - ✅ | Fixed all the previous bugs.
 - ✅ | Added a new "BaseCollection" class.

@@ -1,6 +1,6 @@
 {
   "name": "porn-x",
-  "version": "1.0.2",
+  "version": "1.0.20",
   "description": "Get information about a pornstar, get pictures, videos and many more!",
   "main": "./src/index.js",
   "type": "module",
@@ -8,17 +8,33 @@
     "url": "https://github.com/Basementfoxx/Porn-X"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon src/__tests_/index.test.js",
+    "watch": "tsc --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "porn",
+    "nsfw",
+    "porn-scraper",
+    "pornstar",
+    "nsfw-scraper",
+    "nsfw-db",
+    "db-porn",
+    "porn-fetcher",
+    "npm",
+    "nsfw-api",
+    "porn-api"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "got": "^12.6.0"
+    "axios": "^1.3.5",
+    "cheerio": "^1.0.0-rc.12",
+    "google-img-scrap": "^1.1.0",
+    "googlethis": "^1.7.1",
+    "got": "^12.6.0",
+    "ora": "^6.3.0"
   },
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.12",
-    "googlethis": "^1.7.1",
-    "ora": "^6.3.0"
+    "nodemon": "^2.0.22"
   }
 }
