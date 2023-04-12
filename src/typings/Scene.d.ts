@@ -2,7 +2,7 @@ interface Starring {
   title?: string;
   image?: string;
 }
-interface SceneDetails {
+export interface Scene {
   title?: string;
   image?: string;
   studio?: string;
@@ -11,4 +11,3 @@ interface SceneDetails {
   description?: string;
   starring?: Starring[];
 }
-export { SceneDetails as Scene };

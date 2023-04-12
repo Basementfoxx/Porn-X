@@ -3,7 +3,7 @@ import cheerio from "cheerio";
 
 export default async function getSceneDetail(href) {
   const array = [];
-  const baseURL = `https://www.adultfilmdatabase.com/${href}`;
+  const baseURL = `https://www.adultfilmdatabase.com${href}`;
   const request = await got(baseURL);
   const htmlBody = request.body;
   const $ = cheerio.load(htmlBody);

@@ -44,18 +44,14 @@ export default async function retrieveData(query, options = {}) {
   for (const response of array) {
     spinner.color = "yellow";
     spinner.text = `Fetched ${videos.length} videos`;
-    try {
-      const _result_ = await getMilf300(response.href);
-      if (_result_?.videoURL) return;
-      videos.push({
-        time: response?.time,
-        title: response?.title,
-        url: _result_?.videoURL,
-        poster: _result_?.poster,
-      });
-    } catch (e) {
-      return;
-    }
+    const _result_ = await getMilf300(response.href);
+    if (!_result_?.videoURL) return;
+    videos.push({
+      time: response?.time,
+      title: response?.title,
+      url: _result_?.videoURL,
+      poster: _result_?.poster,
+    });
   }
   spinner.stopAndPersist({
     symbol: "✅",
@@ -85,7 +81,7 @@ async function getMilf300(url) {
         "User-Agent": "got-scraping/1.3.9",
       },
     });
-    const body = await pretty(request.body);
+    const body = request.body;
     const $ = cheerio.load(body);
     const poster = $(".col-md-8").find("video").attr("poster");
     const videoURL = $(".col-md-8").find("video").find("source").attr("src");
@@ -94,6 +90,6 @@ async function getMilf300(url) {
       videoURL,
     };
   } catch (e) {
-    return;
+    return console.log(e);
   }
 }

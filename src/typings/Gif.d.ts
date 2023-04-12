@@ -1,9 +1,8 @@
-interface GifData {
+export interface GifData {
   result: number;
   gifs?: string[];
 }
-interface GifResponse {
+export interface GifResponse {
   title?: string;
   gif?: string;
 }
-export { GifData, GifResponse };

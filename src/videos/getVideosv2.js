@@ -18,56 +18,70 @@ async function getFapXLVideo(_url) {
 
 export default async function getFapXl(query, options) {
   const page = !options?.page ? 1 : options?.page;
-  const spinner = ora().start();
-  const request = await got(
-    `https://fapxl.com/search?query=${query}&p=${page}`
-  );
-  const body = await request.body;
-  const $ = cheerio.load(body);
-  const data = $("#contentwrap");
+  const spinner = ora("Started fetching...").start();
+
   const array = [];
-  data
-    .find(".videorow")
-    .find(".video")
-    .map((index, element) => {
-      const $element = $(element);
-      const duration = $element
-        .find(".row")
-        .last()
-        .find("div")
-        .first()
-        .text()
-        .trim();
-      const time = strToSeconds(duration);
-      if (time < 500) return;
-      const title = $element.find("span.card-title").text();
-      const url = $element.find("span.card-title").find("a").attr("href");
-      array.push({
-        title,
-        url: `https://fapxl.com/${url}`,
-        duration,
+  try {
+    const request = await got(
+      `https://fapxl.com/search?query=${query}&p=${page}`,
+      { maxRedirects: 3 }
+    );
+
+    const body = await request.body;
+    const $ = cheerio.load(body);
+    const data = $("#contentwrap");
+    data
+      .find(".videorow")
+      .find(".video")
+      .map((index, element) => {
+        const $element = $(element);
+        const duration = $element
+          .find(".row")
+          .last()
+          .find("div")
+          .first()
+          .text()
+          .trim();
+        const time = strToSeconds(duration);
+        if (time < 500) return;
+        const title = $element.find("span.card-title").text();
+        const url = $element.find("span.card-title").find("a").attr("href");
+        array.push({
+          title,
+          url: `https://fapxl.com/${url}`,
+          duration,
+        });
       });
-    });
-  const videos = [];
-  for (const response of array) {
-    spinner.color = "blue";
-    spinner.text = `Fetched ${videos.length} videos`;
 
-    const data = await getFapXLVideo(response.url);
+    const videos = [];
+    for (const response of array) {
+      spinner.color = "blue";
+      spinner.text = `Fetched ${videos.length} videos`;
 
-    videos.push({
-      title: response.title,
-      time: response.duration,
-      url: data,
+      const data = await getFapXLVideo(response.url);
+
+      videos.push({
+        title: response.title,
+        time: response.duration,
+        url: data,
+      });
+    }
+    spinner.stopAndPersist({
+      symbol: "✅",
+      text: `Successfully fetched ${videos.length} videos`,
+      prefixText: "",
+      suffixText: "",
     });
+    return videos;
+  } catch (e) {
+    spinner.stopAndPersist({
+      symbol: "❌",
+      text: `Error fetching videos... Try again later.`,
+      prefixText: "",
+      suffixText: "",
+    });
+    return [];
   }
-  spinner.stopAndPersist({
-    symbol: "✅",
-    text: `Successfully fetched ${videos.length} videos`,
-    prefixText: "",
-    suffixText: "",
-  });
-  return videos;
 }
 function strToSeconds(stime) {
   var tt = stime.split(":").reverse();
