@@ -15,6 +15,7 @@ export async function handleMobile() {
   ];
   const suffixedQuery = queries[Math.floor(Math.random() * queries.length)];
   const randomPageV1 = Math.floor(Math.random() * 8) + 1;
+  const randomPageV2 = Math.floor(Math.random() * 50) + 1;
   const array = [];
   const BASE_URI =
     suffixedQuery === "galleries"
