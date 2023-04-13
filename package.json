@@ -1,6 +1,6 @@
 {
   "name": "porn-x",
-  "version": "1.0.38",
+  "version": "1.0.40",
   "description": "Get information about a pornstar, get pictures, videos and many more!",
   "main": "./src/index.js",
   "type": "module",

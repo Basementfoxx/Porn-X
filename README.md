@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1095945739286355968/SPOILER_1681364216482.png" alt="PornX" width="50%"/>
+  <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1095813661458710579/SPOILER_1681332709821.jpg" alt="PornX" width="50%"/>
     <p align="center">
   <a href="http://forthebadge.com/" target="_blank">
     <img src="https://img.shields.io/npm/dt/porn-x.svg"/>
@@ -23,7 +23,7 @@
 </p>
 <h3>
 
-# ⏲️ Version 1.0.38
+# ⏲️ Version 1.0.40
 
 - ✅ | Fixed all the previous bugs.
 - ✅ | Added a new "BaseCollection" class.
@@ -94,4 +94,33 @@ async function getWallpaper(query) {
   'https://content6.pleasuregirl.net/upload/36/2'
   ... 190 more items
 ]
+```
+
+# 🧧 Using CJS?
+
+Using commonJS but still want to use the module?
+It's easy. You only have to install a single module which is [fix-esm](https://www.npmjs.com/package/fix-esm).
+
+# CJS Example
+
+```js
+require("fix-esm").register();
+// Your code will actually begin from here.
+const { Client, BaseCollection, Platform } = require("porn-x");
+const collection = new BaseCollection();
+// Rest is just the same as esm.
+(async () => {
+  const wallpapers = await getWallpaper("Alison Tyler");
+  console.log(wallpapers);
+})();
+
+async function getPictures(query) {
+  const data = await client.getPictures("Alison Tyler");
+  return data;
+}
+
+async function getWallpaper(query) {
+  const result = collection.getWallpaper(query);
+  return result;
+}
 ```
