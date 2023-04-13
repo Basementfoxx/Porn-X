@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1095813661458710579/SPOILER_1681332709821.jpg" alt="PornX" width="50%"/>
+  <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1095945739286355968/SPOILER_1681364216482.png" alt="PornX" width="50%"/>
     <p align="center">
   <a href="http://forthebadge.com/" target="_blank">
     <img src="https://img.shields.io/npm/dt/porn-x.svg"/>
