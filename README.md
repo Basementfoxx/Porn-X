@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1090998411098079352/SPOILER_1680184639539.png" alt="PornX" width="70%"/>
+  <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1095813661458710579/SPOILER_1681332709821.jpg" alt="PornX" width="50%"/>
     <p align="center">
   <a href="http://forthebadge.com/" target="_blank">
     <img src="https://img.shields.io/npm/dt/porn-x.svg"/>
@@ -23,7 +23,7 @@
 </p>
 <h3>
 
-# ⏲️ Version 1.0.20
+# ⏲️ Version 1.0.37
 
 - ✅ | Fixed all the previous bugs.
 - ✅ | Added a new "BaseCollection" class.
