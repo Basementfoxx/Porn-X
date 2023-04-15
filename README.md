@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1095945739286355968/SPOILER_1681364216482.png" alt="PornX" width="50%"/>
+  <img src="https://cdn.discordapp.com/attachments/1070412686791290910/1095813661458710579/SPOILER_1681332709821.jpg" alt="PornX" width="50%"/>
     <p align="center">
   <a href="http://forthebadge.com/" target="_blank">
     <img src="https://img.shields.io/npm/dt/porn-x.svg"/>
@@ -23,11 +23,11 @@
 </p>
 <h3>
 
-# ⏲️ Version 1.0.40
+# ⏲️ Version 1.0.45
 
 - ✅ | Fixed all the previous bugs.
-- ✅ | Added a new "BaseCollection" class.
-- ✅ | Updated the old functions (extended the results.)
+- ✅ | Added new function "getRandomImage".
+- ✅ | Extended the results of "getWallpaper"
 
 ## **Prerequisites** 🎀
 
@@ -53,47 +53,34 @@ import { Client, BaseCollection } from "porn-x";
 const client = new Client(); // Creating a new instance.
 
 (async () => {
-  // const results = await getPictures("Alison Tyler");
-  // console.log(results);
-  const wallpapers = await getWallpaper("Alison Tyler");
-  console.log(wallpapers);
+  const result = await client.getGif("Alison Tyler");
+  console.log(result);
 })();
-
-async function getPictures(query) {
-  const data = await client.getPictures("Alison Tyler");
-  return data;
-}
-
-async function getWallpaper(query) {
-  const collection = new BaseCollection();
-  const result = collection.getWallpaper(query);
-  return result;
-}
 ```
 
 # 🎉 Output
 
 ```ts
-[
-  'https://content5.pleasuregirl.net/upload/36/3223138.jpg',
-  'https://content5.pleasuregirl.net/upload/36/2985666.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2971327.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2794449.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2733603.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2728213.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2713461.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2681913.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2668207.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2661951.jpg',
-  'https://content5.pleasuregirl.net/upload/36/2657860.jpg',
-  'https://content5.pleasuregirl.net/upload/36/2641508.jpg',
-  'https://content5.pleasuregirl.net/upload/36/2626500.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2609465.jpg',
-  'https://content5.pleasuregirl.net/upload/36/2580940.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2561795.jpg',
-  'https://content6.pleasuregirl.net/upload/36/2'
-  ... 190 more items
-]
+
+{
+  results: 75,
+  gifs: [
+    'https://dl.phncdn.com/gif/13476792.gif',
+    'https://dl.phncdn.com/gif/16197072.gif',
+    'https://el.phncdn.com/gif/32148161.gif',
+    'https://dl.phncdn.com/pics/gifs/029/516/581/(m=ldpwiqacxtE_Ai)(mh=WDU8edZ52bgTD0TY)29516581b.gif',
+    'https://dl.phncdn.com/gif/10401922.gif',
+    'https://dl.phncdn.com/gif/18181001.gif',
+    'https://dl.phncdn.com/pics/gifs/005/197/841/(m=ldpwiqacxtE_Ai)(mh=o5QbIuPPL5aMG9f-)5197841b.gif',
+    'https://el.phncdn.com/gif/24686431.gif',
+    'https://el.phncdn.com/pics/gifs/004/840/191/(m=ldpwiqacxtE_Ai)(mh=WDL7dBDbwwy_yCB2)4840191b.gif',
+    'https://dl.phncdn.com/pics/gifs/024/683/181/(m=ldpwiqacxtE_Ai)(mh=v3b6Q28pvBaBPuAy)24683181b.gif',
+    'https://el.phncdn.com/pics/gifs/005/798/351/(m=ldpwiqacxtE_Ai)(mh=t-dUEfFNVKC5tJ33)5798351b.gif',
+  ]
+  ... 30 more items
+}
+
+
 ```
 
 # 🧧 Using CJS?
