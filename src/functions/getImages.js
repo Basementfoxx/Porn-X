@@ -21,10 +21,12 @@ export default async function getImages(query) {
   const res = data.map(async (index, element) => {
     const $element = $(element);
     const href = $element.find("a").attr("href");
-    const doesIncludes = href.includes(`${starQuery}`);
+    const doesIncludes = href?.includes(`${starQuery}`);
     if (!doesIncludes) return;
+
     const images = $element.find("a").find("img").attr("data-src");
-    array.push(images);
+    const url = String(images).replace(".jpg", "b.jpg");
+    array.push(url);
   });
   return {
     title,

@@ -2,7 +2,6 @@ declare interface Wallpaper {
   title?: string;
   url?: string;
 }
-
 export default class BaseCollection {
   /**
    * *Resolution & Image quality*
@@ -16,10 +15,11 @@ export default class BaseCollection {
    * - Drag and drop the picture & wait for it to removed all the blurry particle.
    * - Once it's done simply download it.
    */
-  public async getWallpaper(query: string): Promise<string[]>;
+  public getWallpaper(query: string): Promise<string[]>;
   /**
    * @since 11-04-2023
    */
-  public async getHentaiWallpaper(): Promise<string[]>;
-  public async getRandomWallpaper(platform: string): Promise<Wallpaper>;
+  public getHentaiWallpaper(): Promise<string[]>;
+  public getRandomWallpaper(platform: string): Promise<Wallpaper>;
+  public getRandomImage(): Promise<string>;
 }

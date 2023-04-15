@@ -31,7 +31,19 @@ export default async function getMobWallpaper(query = String()) {
   const data = response.data.children;
   for (const res of data) {
     const url = res?.data?.url_overridden_by_dest;
-    array.push(url);
+    if (url.includes("gallery")) {
+      const mediaData = res.data.media_metadata;
+      for (const ids in mediaData) {
+        const response = mediaData[ids].p.filter((v, index) => {
+          return v.x === 640;
+        });
+        const baseURL = response[0]?.u;
+        const url = baseURL === undefined ? undefined : formatURL(baseURL);
+        array.push(url);
+      }
+    } else {
+      array.push(url);
+    }
   }
 
   try {
@@ -39,24 +51,41 @@ export default async function getMobWallpaper(query = String()) {
     for (const _posts_ of posts) {
       array.push(_posts_);
     }
-    return array;
+    const filteredArray = array.filter((v) => v !== undefined);
+    return filteredArray;
   } catch (e) {
     try {
       const posts = await getPornPics(query);
       for (const _posts_ of posts) {
         array.push(_posts_);
       }
-      return array;
+
+      const filteredArray = array.filter((v) => v !== undefined);
+      return filteredArray;
     } catch (e) {
       try {
         const posts = await getPornPics(query);
         for (const _posts_ of posts) {
           array.push(_posts_);
         }
-        return array;
+
+        const filteredArray = array.filter((v) => v !== undefined);
+        return filteredArray;
       } catch (e) {
         console.error("Error forbidden ");
+        return array;
       }
     }
   }
+}
+
+function formatURL(url) {
+  const finalString = url.replace(/[~`!@#$%^*()+{}\[\];\'\"<>,\\\\-_]/g, "");
+  const replaceString = finalString.split("amp");
+  const d = replaceString
+    .map((v) => {
+      return `${v}`;
+    })
+    .join("");
+  return d;
 }
